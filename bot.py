@@ -19,6 +19,8 @@ from aiogram.types import (
     InlineKeyboardMarkup,
     InlineKeyboardButton,
     WebAppInfo,
+    BotCommand,
+    MenuButtonCommands,
 )
 
 # ---------------------------------------------------------------- настройки
@@ -31,7 +33,7 @@ CONTACT_URL = os.getenv("CONTACT_URL", "https://t.me/username")
 
 # Поменяй на своё — эти строки видит клиент
 NAME = "Максим"             # как тебя называть
-NICKNAME = "@username"      # твой ник в Telegram (для красоты в текстах)
+NICKNAME = "@max_avito_PT"  # твой ник в Telegram (для красоты в текстах)
 
 
 # ---------------------------------------------------------------- клавиатуры
@@ -174,6 +176,14 @@ async def main() -> None:
             "Загрузи webapp/index.html на GitHub Pages и впиши ссылку в .env"
         )
     await bot.delete_webhook(drop_pending_updates=True)
+
+    # Подсказки-кнопки над полем ввода (меню команд)
+    await bot.set_my_commands([
+        BotCommand(command="start", description="🚀 Открыть портфолио"),
+    ])
+    # Кнопка "Меню" слева от поля ввода
+    await bot.set_chat_menu_button(menu_button=MenuButtonCommands())
+
     await dp.start_polling(bot)
 
 
