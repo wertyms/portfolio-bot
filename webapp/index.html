@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  /* ===== токены ===== */
+  :root {
+    --bg: #0f1420;
+    --bg-card: #1a2130;
+    --bg-chip: #232c40;
+    --accent: #4f8cff;
+    --accent-soft: rgba(79, 140, 255, 0.14);
+    --text: #eef1f7;
+    --text-dim: #9aa3b5;
+    --radius: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    padding: 16px 16px 32px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ===== шапка-герой ===== */
+  .hero {
+    text-align: center;
+    padding: 32px 8px 28px;
+  }
+  .avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #7c5cff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 0 auto 16px;
+    box-shadow: 0 8px 24px rgba(79, 140, 255, 0.35);
+  }
+  .hero h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+  .hero p {
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+  .hero .tagline {
+    display: inline-block;
+    margin-top: 14px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  /* ===== секции ===== */
+  section { margin-bottom: 28px; }
+  h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent);
+  }
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+  .card b { color: var(--text); }
+
+  /* ===== навыки ===== */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    background: var(--bg-chip);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .chip.accent {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ===== проект (этот бот) ===== */
+  .project {
+    border: 1px solid rgba(79, 140, 255, 0.4);
+    background: linear-gradient(180deg, rgba(79,140,255,0.10), var(--bg-card));
+  }
+  .project .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+
+  /* ===== кнопка ===== */
+  .cta {
+    display: block;
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+  .cta:hover { filter: brightness(1.1); }
+  .cta:active { transform: scale(0.98); }
+
+  footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="avatar">👨‍💻</div>
+  <h1 id="name">Имя Фамилия</h1>
+  <p>Разработчик · Python / JavaScript</p>
+  <span class="tagline">Боты · Мини-приложения · Сайты</span>
+</header>
+
+<section>
+  <h2>Обо мне</h2>
+  <div class="card">
+    Делаю Telegram-ботов, мини-приложения и сайты — быстро, аккуратно
+    и с понятной ценой заранее. Показываю результат на каждом этапе:
+    <b>ты видишь, за что платишь</b>.
+  </div>
+</section>
+
+<section>
+  <h2>Навыки</h2>
+  <div class="chips">
+    <span class="chip accent">Python</span>
+    <span class="chip accent">JavaScript</span>
+    <span class="chip">aiogram</span>
+    <span class="chip">Telegram Mini Apps</span>
+    <span class="chip">HTML / CSS</span>
+    <span class="chip">API и интеграции</span>
+    <span class="chip">ИИ-боты</span>
+  </div>
+</section>
+
+<section>
+  <h2>Проекты</h2>
+  <div class="card project">
+    <span class="badge">ДЕМО</span><br>
+    <b>Этот бот и это приложение</b> — моя работа целиком:
+    сервер на Python, интерфейс на JavaScript.
+    Ты сейчас внутри примера, который можно заказать себе.
+  </div>
+  <div class="card">
+    <b>Следующий проект — твой.</b> Расскажи задачу, и я предложу,
+    как её решить.
+  </div>
+</section>
+
+<button class="cta" onclick="contact()">📩 Обсудить задачу</button>
+
+<footer>Сделано вручную, без конструкторов 🛠</footer>
+
+<script>
+  // ===== НАСТРОЙКИ — поменяй на свои =====
+  const NAME = "Имя Фамилия";
+  const USERNAME = "username"; // ник в Telegram без @
+
+  document.getElementById("name").textContent = NAME;
+
+  // Подключаемся к Telegram
+  const tg = window.Telegram?.WebApp;
+  if (tg) {
+    tg.ready();
+    tg.expand();
+    // Подстраиваемся под тему Telegram
+    if (tg.colorScheme === "light") {
+      document.documentElement.style.setProperty("--bg", "#f2f4f8");
+      document.documentElement.style.setProperty("--bg-card", "#ffffff");
+      document.documentElement.style.setProperty("--bg-chip", "#e8ecf4");
+      document.documentElement.style.setProperty("--text", "#1a2030");
+      document.documentElement.style.setProperty("--text-dim", "#5a6478");
+    }
+    // Если в Telegram указано имя — показываем его
+    if (tg.initDataUnsafe?.user?.first_name && NAME.startsWith("Имя")) {
+      document.getElementById("name").textContent =
+        tg.initDataUnsafe.user.first_name;
+    }
+  }
+
+  function contact() {
+    if (tg) {
+      tg.openTelegramLink("https://t.me/" + USERNAME);
+    } else {
+      window.open("https://t.me/" + USERNAME, "_blank");
+    }
+  }
+</script>
+</body>
+</html>
